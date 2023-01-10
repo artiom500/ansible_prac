@@ -1,0 +1,21 @@
+---
+- hosts: nginx
+  gather_facts: no
+  become: yes
+  vars:
+        server_name: localhost
+        document_root: /opt/nginx/ansible
+        app_root: index.php
+  roles:
+    - nginx
+
+- hosts: php
+  gather_facts: no
+  become: yes
+  vars:
+        server_name: localhost
+        document_root: /opt/nginx/ansible
+        app_root: index.php
+
+  roles:
+    - php
